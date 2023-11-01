@@ -19,7 +19,7 @@ unset -f _set_liveuser_PS1
 
 # aliases
 alias ls='ls --color=auto'
-alias ll='exa --long --icons -h' 
+alias ll='eza --long --icons -h' 
 alias v='nvim'
 alias g='git'
 alias p='pnpm'
