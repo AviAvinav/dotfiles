@@ -10,3 +10,4 @@ This repository will contain my setup for arch linux.
 2. Set fish as default shell for user with `chsh -s /usr/bin/fish`
 3. Set wallpaper with nitrogen
 4. Download museo sans
+5. Add github-cli and lf
