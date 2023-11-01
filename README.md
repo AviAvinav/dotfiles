@@ -4,4 +4,4 @@ This repository will contain my setup for arch linux.
 
 ## Post setup
 
-Setup fish on your own the config.fish file is there
+1. Setup fish on your own the config.fish file is there
