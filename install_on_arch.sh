@@ -1,4 +1,4 @@
-#!bin/env sh
+#!/bin/env sh
 
 # Throw error if command exits weirdly
 set -e 
@@ -50,9 +50,9 @@ sudo pacman -S --noconfirm --needed $DRI xorg-server xorg-apps xorg-xinit xorg-x
   pkgconf stack
 
 # Other necessary stuff
-sudo pacman -S --noconfirm --needed rofi nitrogen kitty lxappearance fish neovim vim nano
+sudo pacman -S --noconfirm --needed rofi nitrogen kitty lxappearance fish neovim vim nano tig firefox
 
-if [ ! -d "~/.config" ]; then
+if ! [ -d ~/.config ]; then
   mkdir ~/.config
 fi
 
@@ -69,17 +69,12 @@ git clone https://github.com/xmonad/xmonad ~/.config/xmonad/xmonad
 git clone https://github.com/xmonad/xmonad-contrib ~/.config/xmonad/xmonad-contrib
 git clone https://codeberg.org/xmobar/xmobar ~/.config/xmonad/xmobar
 
-cp ./xmonad/stack.yaml ~/.config/xmonad/stack.yaml
 cp ./xmonad/xmonad.hs ~/.config/xmonad/xmonad.hs
 cp ./xmonad/xmobar.hs ~/.config/xmobar/xmobar.hs
 
-(cd ~/.config/xmonad && stack install)
+(cd ~/.config/xmonad && stack init)
 
-(cp ~/.local/bin/xmonad /usr/bin/xmonad)
-(cp ~/.local/bin/xmobar /usr/bin/xmobar)
-(cp ~/.local/bin/xmonad-contrib /usr/bin/xmonad-contrib)
-
-(cd && cd ./dotfiles)
+(cp ./xmonad/stack.yaml ~/.config/xmonad/stack.yaml && cd ~/.config/xmonad && stack install)
 
 # Install an AUR helper
 echo "We need an AUR helper. It is essential. 1) paru       2) yay"
